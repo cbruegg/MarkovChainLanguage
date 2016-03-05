@@ -13,41 +13,6 @@ public final class MarkovChainOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated string words = 1;</code>
-     *
-     * <pre>
-     * All states in the chain
-     * </pre>
-     */
-    com.google.protobuf.ProtocolStringList
-        getWordsList();
-    /**
-     * <code>repeated string words = 1;</code>
-     *
-     * <pre>
-     * All states in the chain
-     * </pre>
-     */
-    int getWordsCount();
-    /**
-     * <code>repeated string words = 1;</code>
-     *
-     * <pre>
-     * All states in the chain
-     * </pre>
-     */
-    java.lang.String getWords(int index);
-    /**
-     * <code>repeated string words = 1;</code>
-     *
-     * <pre>
-     * All states in the chain
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getWordsBytes(int index);
-
-    /**
      * <code>map&lt;string, .de.cbruegg.mcl.proto.TransitionsFrom&gt; transitions = 2;</code>
      *
      * <pre>
@@ -69,7 +34,6 @@ public final class MarkovChainOuterClass {
       super(builder);
     }
     private MarkovChain() {
-      words_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -96,20 +60,11 @@ public final class MarkovChainOuterClass {
               }
               break;
             }
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                words_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              words_.add(s);
-              break;
-            }
             case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 transitions_ = com.google.protobuf.MapField.newMapField(
                     TransitionsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000002;
+                mutable_bitField0_ |= 0x00000001;
               }
               com.google.protobuf.MapEntry<java.lang.String, de.cbruegg.mcl.proto.MarkovChainOuterClass.TransitionsFrom>
               transitions = input.readMessage(
@@ -126,9 +81,6 @@ public final class MarkovChainOuterClass {
             new com.google.protobuf.InvalidProtocolBufferException(
                 e.getMessage()).setUnfinishedMessage(this));
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          words_ = words_.getUnmodifiableView();
-        }
         makeExtensionsImmutable();
       }
     }
@@ -153,51 +105,6 @@ public final class MarkovChainOuterClass {
       return de.cbruegg.mcl.proto.MarkovChainOuterClass.internal_static_de_cbruegg_mcl_proto_MarkovChain_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               de.cbruegg.mcl.proto.MarkovChainOuterClass.MarkovChain.class, de.cbruegg.mcl.proto.MarkovChainOuterClass.MarkovChain.Builder.class);
-    }
-
-    public static final int WORDS_FIELD_NUMBER = 1;
-    private com.google.protobuf.LazyStringList words_;
-    /**
-     * <code>repeated string words = 1;</code>
-     *
-     * <pre>
-     * All states in the chain
-     * </pre>
-     */
-    public com.google.protobuf.ProtocolStringList
-        getWordsList() {
-      return words_;
-    }
-    /**
-     * <code>repeated string words = 1;</code>
-     *
-     * <pre>
-     * All states in the chain
-     * </pre>
-     */
-    public int getWordsCount() {
-      return words_.size();
-    }
-    /**
-     * <code>repeated string words = 1;</code>
-     *
-     * <pre>
-     * All states in the chain
-     * </pre>
-     */
-    public java.lang.String getWords(int index) {
-      return words_.get(index);
-    }
-    /**
-     * <code>repeated string words = 1;</code>
-     *
-     * <pre>
-     * All states in the chain
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getWordsBytes(int index) {
-      return words_.getByteString(index);
     }
 
     public static final int TRANSITIONS_FIELD_NUMBER = 2;
@@ -246,9 +153,6 @@ public final class MarkovChainOuterClass {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      for (int i = 0; i < words_.size(); i++) {
-        com.google.protobuf.GeneratedMessage.writeString(output, 1, words_.getRaw(i));
-      }
       for (java.util.Map.Entry<java.lang.String, de.cbruegg.mcl.proto.MarkovChainOuterClass.TransitionsFrom> entry
            : internalGetTransitions().getMap().entrySet()) {
         com.google.protobuf.MapEntry<java.lang.String, de.cbruegg.mcl.proto.MarkovChainOuterClass.TransitionsFrom>
@@ -265,14 +169,6 @@ public final class MarkovChainOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      {
-        int dataSize = 0;
-        for (int i = 0; i < words_.size(); i++) {
-          dataSize += computeStringSizeNoTag(words_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getWordsList().size();
-      }
       for (java.util.Map.Entry<java.lang.String, de.cbruegg.mcl.proto.MarkovChainOuterClass.TransitionsFrom> entry
            : internalGetTransitions().getMap().entrySet()) {
         com.google.protobuf.MapEntry<java.lang.String, de.cbruegg.mcl.proto.MarkovChainOuterClass.TransitionsFrom>
@@ -416,8 +312,6 @@ public final class MarkovChainOuterClass {
       }
       public Builder clear() {
         super.clear();
-        words_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
         internalGetMutableTransitions().clear();
         return this;
       }
@@ -442,11 +336,6 @@ public final class MarkovChainOuterClass {
       public de.cbruegg.mcl.proto.MarkovChainOuterClass.MarkovChain buildPartial() {
         de.cbruegg.mcl.proto.MarkovChainOuterClass.MarkovChain result = new de.cbruegg.mcl.proto.MarkovChainOuterClass.MarkovChain(this);
         int from_bitField0_ = bitField0_;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          words_ = words_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.words_ = words_;
         result.transitions_ = internalGetTransitions();
         result.transitions_.makeImmutable();
         onBuilt();
@@ -464,16 +353,6 @@ public final class MarkovChainOuterClass {
 
       public Builder mergeFrom(de.cbruegg.mcl.proto.MarkovChainOuterClass.MarkovChain other) {
         if (other == de.cbruegg.mcl.proto.MarkovChainOuterClass.MarkovChain.getDefaultInstance()) return this;
-        if (!other.words_.isEmpty()) {
-          if (words_.isEmpty()) {
-            words_ = other.words_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureWordsIsMutable();
-            words_.addAll(other.words_);
-          }
-          onChanged();
-        }
         internalGetMutableTransitions().mergeFrom(
             other.internalGetTransitions());
         onChanged();
@@ -502,136 +381,6 @@ public final class MarkovChainOuterClass {
         return this;
       }
       private int bitField0_;
-
-      private com.google.protobuf.LazyStringList words_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureWordsIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          words_ = new com.google.protobuf.LazyStringArrayList(words_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-      /**
-       * <code>repeated string words = 1;</code>
-       *
-       * <pre>
-       * All states in the chain
-       * </pre>
-       */
-      public com.google.protobuf.ProtocolStringList
-          getWordsList() {
-        return words_.getUnmodifiableView();
-      }
-      /**
-       * <code>repeated string words = 1;</code>
-       *
-       * <pre>
-       * All states in the chain
-       * </pre>
-       */
-      public int getWordsCount() {
-        return words_.size();
-      }
-      /**
-       * <code>repeated string words = 1;</code>
-       *
-       * <pre>
-       * All states in the chain
-       * </pre>
-       */
-      public java.lang.String getWords(int index) {
-        return words_.get(index);
-      }
-      /**
-       * <code>repeated string words = 1;</code>
-       *
-       * <pre>
-       * All states in the chain
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getWordsBytes(int index) {
-        return words_.getByteString(index);
-      }
-      /**
-       * <code>repeated string words = 1;</code>
-       *
-       * <pre>
-       * All states in the chain
-       * </pre>
-       */
-      public Builder setWords(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureWordsIsMutable();
-        words_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string words = 1;</code>
-       *
-       * <pre>
-       * All states in the chain
-       * </pre>
-       */
-      public Builder addWords(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureWordsIsMutable();
-        words_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string words = 1;</code>
-       *
-       * <pre>
-       * All states in the chain
-       * </pre>
-       */
-      public Builder addAllWords(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureWordsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, words_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string words = 1;</code>
-       *
-       * <pre>
-       * All states in the chain
-       * </pre>
-       */
-      public Builder clearWords() {
-        words_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string words = 1;</code>
-       *
-       * <pre>
-       * All states in the chain
-       * </pre>
-       */
-      public Builder addWordsBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        ensureWordsIsMutable();
-        words_.add(value);
-        onChanged();
-        return this;
-      }
 
       private com.google.protobuf.MapField<
           java.lang.String, de.cbruegg.mcl.proto.MarkovChainOuterClass.TransitionsFrom> transitions_;
@@ -1263,16 +1012,16 @@ public final class MarkovChainOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\021MarkovChain.proto\022\024de.cbruegg.mcl.prot" +
-      "o\"\300\001\n\013MarkovChain\022\r\n\005words\030\001 \003(\t\022G\n\013tran" +
-      "sitions\030\002 \003(\01322.de.cbruegg.mcl.proto.Mar" +
-      "kovChain.TransitionsEntry\032Y\n\020Transitions" +
-      "Entry\022\013\n\003key\030\001 \001(\t\0224\n\005value\030\002 \001(\0132%.de.c" +
-      "bruegg.mcl.proto.TransitionsFrom:\0028\001\"\255\001\n" +
-      "\017TransitionsFrom\022]\n\024probabilitiesByState" +
-      "\030\001 \003(\0132?.de.cbruegg.mcl.proto.Transition" +
-      "sFrom.ProbabilitiesByStateEntry\032;\n\031Proba" +
-      "bilitiesByStateEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005val",
-      "ue\030\002 \001(\001:\0028\001b\006proto3"
+      "o\"\261\001\n\013MarkovChain\022G\n\013transitions\030\002 \003(\01322" +
+      ".de.cbruegg.mcl.proto.MarkovChain.Transi" +
+      "tionsEntry\032Y\n\020TransitionsEntry\022\013\n\003key\030\001 " +
+      "\001(\t\0224\n\005value\030\002 \001(\0132%.de.cbruegg.mcl.prot" +
+      "o.TransitionsFrom:\0028\001\"\255\001\n\017TransitionsFro" +
+      "m\022]\n\024probabilitiesByState\030\001 \003(\0132?.de.cbr" +
+      "uegg.mcl.proto.TransitionsFrom.Probabili" +
+      "tiesByStateEntry\032;\n\031ProbabilitiesByState" +
+      "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\001:\0028\001b\006p",
+      "roto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1291,7 +1040,7 @@ public final class MarkovChainOuterClass {
     internal_static_de_cbruegg_mcl_proto_MarkovChain_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_de_cbruegg_mcl_proto_MarkovChain_descriptor,
-        new java.lang.String[] { "Words", "Transitions", });
+        new java.lang.String[] { "Transitions", });
     internal_static_de_cbruegg_mcl_proto_MarkovChain_TransitionsEntry_descriptor =
       internal_static_de_cbruegg_mcl_proto_MarkovChain_descriptor.getNestedTypes().get(0);
     internal_static_de_cbruegg_mcl_proto_MarkovChain_TransitionsEntry_fieldAccessorTable = new

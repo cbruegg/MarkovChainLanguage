@@ -3,9 +3,6 @@ syntax = "proto3";
 package de.cbruegg.mcl.proto;
 
 message MarkovChain {
-    // All states in the chain
-    repeated string words = 1;
-
     // Transitions mapped by their beginning word
     map<string, TransitionsFrom> transitions = 2;
 }

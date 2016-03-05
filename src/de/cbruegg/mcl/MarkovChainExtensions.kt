@@ -4,11 +4,17 @@ import de.cbruegg.mcl.proto.MarkovChainOuterClass.MarkovChain
 import java.util.*
 
 /**
+ * Words/States of the chain
+ */
+val MarkovChain.words: Set<String>
+    get() = transitions.keys
+
+/**
  * Extension property which holds states that don't have any reachable
  * other states.
  */
 val MarkovChain.finalStates: Sequence<String>
-    get() = wordsList.asSequence().filter { word ->
+    get() = words.asSequence().filter { word ->
         (transitions[word]
                 ?.probabilitiesByState
                 ?.asSequence()
@@ -49,7 +55,7 @@ private fun MarkovChain.nextState(currentState: String, finalStates: HashSet<Str
  * @param maxRuns Transitions after which should be aborted
  * @param finalStatesSet Set of final states. Ignore any transitions for states in this set.
  */
-fun MarkovChain.simulateSequence(start: String = wordsList.getRandom(), maxRuns: Int? = null, finalStatesSet: HashSet<String> = finalStates.toHashSet()): Sequence<String> {
+fun MarkovChain.simulateSequence(start: String = words.getRandom(), maxRuns: Int? = null, finalStatesSet: HashSet<String> = finalStates.toHashSet()): Sequence<String> {
     var runs = 0
     var state = start
 

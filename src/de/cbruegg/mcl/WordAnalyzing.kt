@@ -58,8 +58,6 @@ fun Map<String, Map<String, Int>>.wordFollowCountsByPreviousToChain(): MarkovCha
     var lastPercentage = -1
 
     for ((firstWord, followCounts) in this) {
-        markovBuilder.addWords(firstWord)
-
         val transitionsFromBuilder = TransitionsFrom.newBuilder()
         if (firstWord.endsWith('.')) {
             // End of sentence, make it a final state

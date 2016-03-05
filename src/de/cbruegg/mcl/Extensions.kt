@@ -44,6 +44,22 @@ fun <T : Any> Iterator<T>.chunkify(chunkSize: Int): Sequence<Sequence<T>> =
 fun <E> List<E>.getRandom(): E = this[(Math.random() * size).toInt()]
 
 /**
+ * Return a random element from this list. O(n)
+ */
+fun <E> Set<E>.getRandom(): E {
+    val entry = (Math.random() * size).toInt()
+    var i = 0
+    for (e in this) {
+        if (i++ == entry) {
+            return e
+        }
+    }
+    throw ConcurrentModificationException("Size changed")
+}
+
+
+
+/**
  * Get notified about elements 'crossing' this sequence without modifying it.
  */
 inline fun <T> Sequence<T>.peek(crossinline f: (T) -> Unit): Sequence<T> = map { f(it); it }

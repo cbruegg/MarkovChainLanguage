@@ -14,7 +14,7 @@ fun MarkovChain.printRandomSentences(count: Int, minSentenceWordLength: Int = 3,
     val finalStates = finalStates.toHashSet()
     println("Starting simulation.")
     repeat(count) {
-        val seq = simulateSequence(start ?: wordsList.getRandom(), finalStatesSet = finalStates).toList()
+        val seq = simulateSequence(start ?: words.getRandom(), finalStatesSet = finalStates).toList()
         if (seq.count() > minSentenceWordLength) {
             seq.forEach { print(it); print(' ') }
             println()
