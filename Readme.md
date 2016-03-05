@@ -1,3 +1,10 @@
+# What is this?
+This is a toy project for experimenting with Markov Chains and text generation. It specifically targets a [Reddit comment dump](https://www.reddit.com/r/datasets/comments/3bxlg7/i_have_every_publicly_available_reddit_comment) from January 2015.
+
+I've made it process more than 100 million words in total, resulting in a markov chain of 532 MB in size. Below is a representative example of output of the generator. Looks like Reddit is a weird place sometimes.
+
+If you'd like to experiment with it as well, you'll need to edit the [Config file](https://github.com/cbruegg/MarkovChainLanguage/blob/master/src/de/cbruegg/mcl/Config.kt). Oh, by the way: The project is written in Kotlin and was thus really `fun` to make. It almost felt like writing Python, but typesafe.
+
 ```
 Loading Markov chain...
 Computing final states...
