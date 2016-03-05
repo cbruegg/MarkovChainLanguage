@@ -3,8 +3,15 @@ package de.cbruegg.mcl
 import com.google.protobuf.CodedInputStream
 import de.cbruegg.mcl.proto.MarkovChainOuterClass.MarkovChain
 
-fun computeAndSaveChain() {
+/**
+ * @param dryRun If true, don't write anything to disk
+ */
+fun computeAndSaveChain(dryRun: Boolean = false) {
     val chain = computeMarkovChain(175000000)
+
+    if (dryRun) {
+        return
+    }
 
     val chainFileOutput = Config.chainPath.toFile().outputStream().buffered()
     chainFileOutput.use {
